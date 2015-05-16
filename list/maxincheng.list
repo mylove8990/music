@@ -1,4 +1,5 @@
 var MusicSpace = "./maxincheng/";
 var MusicList = [
+'勇气|yq.mp3|ljr.jpg',
 '飘洋过海来看你|pyghlkn.mp3|ljr.jpg',
 ];
