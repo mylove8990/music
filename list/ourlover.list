@@ -1,0 +1,4 @@
+var MusicSpace = "./ourlover/";
+var MusicList = [
+'一路上有你|ylsyn.mp3|us.jpg',
+];
