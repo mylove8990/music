@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>剑指offer</title>
+
+<style type="text/css">
+body {
+	margin: auto;
+    padding-right: 1em;
+    padding-left: 1em;
+    max-width: 50em; 
+    border-left: 0px solid black;
+    border-right: 0px solid black;
+    color: black;
+    font-family: Verdana, sans-serif;
+    font-size: 100%;
+    line-height: 140%;
+    color: #333; 
+}
+p {
+	text-indent:2em;
+}
+pre {
+    border: 1px dotted gray;
+    background-color: #ececec;
+    color: #1111111;
+    padding: 0.5em;
+}
+code {
+    font-family: monospace;
+	font-size: 130%;
+}
+/*
+table
+        {
+            border-collapse: collapse;
+            border: none;
+            width: 100%;
+			text-align:center;
+			border: 1px solid #ccc;
+        }
+
+th{
+		border: solid #000 1px;
+		text-align:center;
+		background-color: #D2E9FF;
+		color: #000000;
+}
+td
+ {
+        border: solid #000 1px;
+		background-color: #F0F0F0;
+		text-align:center
+}*/
+
+table {
+   width: 100%;
+   border: 1px solid #ccc;
+   text-align:center;
+}
+
+th {
+  background-color: #000000;
+  color: #ffffff;
+  text-align:center;
+  
+}
+
+td {
+  background-color: #dcdcdc;
+  text-align:center;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a { 
+    text-decoration: none;
+    color: #7a5ada; 
+}
+h1, h2, h3, h4, h5 { font-family: verdana;
+                     font-weight: bold;
+                     border-bottom: 1px dotted black;
+                     color: #7a5ada; }
+h1 {
+        font-size: 130%;
+}
+
+h2 {
+        font-size: 110%;
+}
+
+h3 {
+        font-size: 95%;
+}
+
+h4 {
+        font-size: 90%;
+        font-style: italic;
+}
+
+h5 {
+        font-size: 90%;
+        font-style: italic;
+}
+
+h1.title {
+        font-size: 200%;
+        font-weight: bold;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        text-align: left;
+        border: none;
+}
+
+dt code {
+        font-weight: bold;
+}
+dd p {
+        margin-top: 0;
+}
+
+#footer {
+        padding-top: 1em;
+        font-size: 100%;
+        color: gray;
+        text-align: center;
+        }
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>剑指offer实现</h1>
+
+<pre><code class="r">
+#include<iostream>
+#include<vector>
+#include<string>
+#include<stack>
+#include<algorithm>
+using namespace std;
+bool findnum(int (*p)[5],int m,int n,int target) //二维数组
+{
+	int x=0;
+	int y=n-1;
+	while(p[x][y]!=target&&x<m&&y<n)
+	{
+		if(p[x][y]<target)
+		{
+			x++;
+		}
+		else
+		{
+			y--;
+		}
+	}
+	if(p[x][y]==target)
+	{
+		return true;
+	}
+	else
+		return false;
+}
+char* fillblack(string str)       //空格替换
+{
+	int count=0;
+	for(int i=0;i<str.size();i++)
+	{
+		if(str[i]==' ')
+			count++;	
+	}
+	char *p=new char[str.size()+2*count+1];
+	int index=0;
+	for(int i=0;i<str.size();i++)
+	{
+		if(str[i]!=' ')
+			*(p+(index++))=str[i];
+		else
+		{
+			*(p+(index++))='%';
+			*(p+(index++))='2';
+			*(p+(index++))='0';
+		}
+	}
+	*(p+index)='\0';
+	return p;
+}
+struct ListNode
+{
+	int m_value;
+	ListNode* NextNode;
+};
+void AddTail(ListNode** pHead,int vaule)    //链表尾部添加
+{
+	ListNode * pNew = new ListNode();
+	pNew->m_value=vaule;
+	pNew->NextNode=NULL;
+
+	if(*pHead==NULL)
+	{
+		*pHead=pNew;
+	}
+	else
+	{
+		ListNode* pNode=*pHead;
+		while(pNode->NextNode!=NULL) //链表检索
+		{
+			pNode=pNode->NextNode;
+		}
+		pNode->NextNode=pNew;
+	}
+}
+
+ListNode * reverselist(ListNode *pHead)   //反转链表用三个指针 ****
+{
+	if(pHead==NULL)
+		return NULL;
+	ListNode * result=NULL;
+	ListNode * pBehind=NULL;
+	ListNode * pNow = pHead;
+	ListNode * pBefore=NULL;
+	while(pNow!=NULL)
+	{
+		pBehind=pNow->NextNode;
+		if(pBehind==NULL)
+			result = pNow;
+		pNow->NextNode=pBefore;
+		pBefore=pNow;
+		pNow=pBehind;
+	}
+	return result;
+}
+
+ListNode* findendknode(ListNode *pHead,int k) //找到反向第k个节点
+{
+	if(pHead==NULL)
+		return NULL;
+	ListNode *pNow=pHead;
+	ListNode *pEnd=pHead;
+	for(int i=0;i<k-1;i++)
+	{
+		if(pNow->NextNode==NULL)
+			return NULL;
+		pNow=pNow->NextNode;
+	}
+	while(pNow->NextNode!=NULL)
+	{
+		pEnd=pEnd->NextNode;
+		pNow=pNow->NextNode;
+	}
+	return pEnd;
+}
+void DeleteNode(ListNode** pHead,int vaule)    //删除节点
+{
+	if(pHead==NULL&&*pHead==NULL)
+		return;
+	ListNode* pDelete=NULL;
+	if((*pHead)->m_value==vaule)
+	{
+		pDelete=*pHead;
+		*pHead=(*pHead)->NextNode;
+	}
+	else
+	{
+		ListNode* pNode=*pHead;
+		while(pNode->NextNode!=NULL&&pNode->NextNode->m_value!=vaule) //链表检索
+		{
+			pNode=pNode->NextNode;
+		}
+		if(pNode->NextNode!=NULL&&pNode->NextNode->m_value==vaule)
+		{
+			pDelete=pNode->NextNode;
+			pNode->NextNode=pNode->NextNode->NextNode;
+		}
+	}
+	if(pDelete!=NULL)
+	{
+		delete pDelete;
+		pDelete=NULL;
+	}
+		
+}
+ListNode * Merge(ListNode *pHead1,ListNode *pHead2)
+{
+	if(pHead1==NULL&&pHead2==NULL)
+		return NULL;
+	if(pHead1==NULL)
+		return pHead2;
+	if(pHead2==NULL)
+		return pHead1;
+
+	ListNode * pMergeHead = NULL;
+	if(pHead1->m_value>pHead2->m_value)
+	{
+		pMergeHead=pHead2;
+		pMergeHead->NextNode=Merge(pHead1,pHead2->NextNode);
+	}
+	else
+	{
+		pMergeHead=pHead1;
+		pMergeHead->NextNode=Merge(pHead1->NextNode,pHead2);
+	}
+	return pMergeHead;
+
+}
+void printFromHead(ListNode** pHead)         //从尾部打印链表
+{
+	if(pHead==NULL&&(*pHead==NULL))
+		return;
+	ListNode* pNode=*pHead;
+	while(pNode->NextNode!=NULL)
+	{
+		cout<<pNode->m_value<<"-->";
+		pNode=pNode->NextNode;
+	}
+	cout<<pNode->m_value<<endl;
+}
+void printFromTail(ListNode* pHead)            //从尾部打印链表
+{
+	if(pHead!=NULL)
+	{
+		if(pHead->NextNode!=NULL)
+			printFromTail(pHead->NextNode);
+		cout<<pHead->m_value<<"<--";
+	}
+}
+void insertAfterNum(ListNode** pHead,int pos,int vaule)  //定位置后面插入节点
+{
+	
+	ListNode *pInsert=new ListNode();
+	pInsert->m_value=vaule;
+	pInsert->NextNode=NULL;
+	if(pHead==NULL&&(*pHead)==NULL)
+		return;
+	ListNode *pNode=*pHead;
+	while(pNode->NextNode!=NULL&&pNode->m_value!=pos)
+		pNode=pNode->NextNode;
+	if(pNode->NextNode!=NULL&&pNode->m_value==pos)
+	{
+		
+		pInsert->NextNode=pNode->NextNode;
+		pNode->NextNode=pInsert;
+	}
+}
+void insertBeforeNum(ListNode** pHead,int pos,int vaule)  //定位置前面插入节点
+{
+	ListNode *pInsert=new ListNode();
+	pInsert->m_value=vaule;
+	pInsert->NextNode=NULL;
+	if(pHead==NULL&&(*pHead)==NULL)
+		return;
+	ListNode *pNode=*pHead;
+	if(pNode->m_value==pos)
+	{
+		pInsert->NextNode=pNode;
+		*pHead=pInsert;
+	}
+	else
+	{
+		while(pNode->NextNode->NextNode!=NULL&&pNode->NextNode->m_value!=pos)
+			pNode=pNode->NextNode;
+		if(pNode->NextNode->NextNode!=NULL&&pNode->NextNode->m_value==pos)
+		{
+			pInsert->NextNode=pNode->NextNode;
+			pNode->NextNode=pInsert;
+		}
+	}
+	
+}
+
+struct BinaryTreeNode
+{
+	int m_vaule;
+	BinaryTreeNode* m_pleft;
+	BinaryTreeNode* m_pright;
+};
+
+BinaryTreeNode* Construct(int* preorder,int* inorder,int length)  //已知前序和中序重构二叉树
+{
+	if(preorder==NULL||inorder==NULL||length<=0)
+		return NULL;
+	BinaryTreeNode* root=new BinaryTreeNode();
+	root->m_vaule=preorder[0];
+	root->m_pleft=root->m_pright=NULL;
+
+	int index=0;
+	while(index<length&&*(inorder+index)!=preorder[0])
+		index++;
+	if(index<length&&*(inorder+index)==preorder[0])
+	{
+		root->m_pleft=Construct(preorder+1,inorder,index);
+		root->m_pright=Construct(preorder+index+1,inorder+index+1,length-index-1);
+	}
+	return root;
+
+}
+void preprint(BinaryTreeNode* p)         //二叉树前序输出
+{
+	if(p==NULL)
+		return;
+	cout<<p->m_vaule<<" ";
+	if(p->m_pleft!=NULL)
+		preprint(p->m_pleft);
+	if(p->m_pright!=NULL)
+		preprint(p->m_pright);
+}
+void inprint(BinaryTreeNode* p)           //二叉树中序输出
+{
+	if(p==NULL)
+		return;
+	if(p->m_pleft!=NULL)
+		inprint(p->m_pleft);
+	cout<<p->m_vaule<<" ";
+	if(p->m_pright!=NULL)
+		inprint(p->m_pright);
+}
+void backprint(BinaryTreeNode* p)          //二叉树后序输出
+{
+	if(p==NULL)
+		return;
+	if(p->m_pleft!=NULL)
+		backprint(p->m_pleft);
+	if(p->m_pright!=NULL)
+		backprint(p->m_pright);
+	cout<<p->m_vaule<<" ";
+}
+bool isEqual(BinaryTreeNode *father,BinaryTreeNode *son)
+{
+	if(son==NULL)
+		return true;
+	if(father==NULL)
+		return false;
+	if(father->m_vaule!=son->m_vaule)
+		return false;
+	return isEqual(father->m_pleft,son->m_pleft)&&isEqual(father->m_pright,son->m_pright);
+}
+bool findSubTree(BinaryTreeNode *father,BinaryTreeNode *son)
+{
+	bool result=false;
+	if(father==NULL||son==NULL)
+		return result;
+	if(father->m_vaule==son->m_vaule)
+	{
+		result=isEqual(father,son);
+	}
+	else
+	{
+		result = findSubTree(father->m_pleft,son);
+		result = findSubTree(father->m_pright,son);
+	}
+	return result;
+}
+
+void MirrorTree(BinaryTreeNode *root)
+{
+	if(root==NULL)
+		return;
+	BinaryTreeNode *temp=root->m_pleft;
+	root->m_pleft=root->m_pright;
+	root->m_pright=temp;
+
+
+	if(root->m_pleft!=NULL)
+		MirrorTree(root->m_pleft);
+	if(root->m_pright!=NULL)
+		MirrorTree(root->m_pright);
+
+}
+void PrintFromTop(BinaryTreeNode *root)
+{
+	
+	if(root==NULL)
+		return;
+	deque<BinaryTreeNode *> dequeTreeNode;
+	dequeTreeNode.push_back(root);
+	while(dequeTreeNode.size()>0)
+	{
+		BinaryTreeNode *pNow = dequeTreeNode.front();
+		dequeTreeNode.pop_front();
+
+		cout<<pNow->m_vaule<<" ";
+
+		if(pNow->m_pleft!=NULL)
+			dequeTreeNode.push_back(pNow->m_pleft);
+		if(pNow->m_pright!=NULL)
+			dequeTreeNode.push_back(pNow->m_pright);
+	}
+	cout<<endl;
+}
+
+bool IsBinaryTree(int *sequence,int length)
+{
+	if(sequence==NULL||length<=0)
+		return false;
+	int root = sequence[length-1];//后序序列
+	int i=0;
+	for(;i<length-1;i++)
+	{
+		if(sequence[i]>root)
+			break;
+	}
+	int j=i;
+	for(;j<length-1;j++)
+	{
+		if(sequence[j]<root)
+			return false;
+	}
+	bool left=true;
+	if(i>0)
+		left=IsBinaryTree(sequence,i);
+	bool right=true;
+	if(i<length-1)
+		right=IsBinaryTree(sequence+i,j-i);
+	return left&&right;
+}
+
+void findeachpath(BinaryTreeNode *root,vector<int> path,int sum,int nowsum)
+{
+	if(root==NULL)
+		return;
+	BinaryTreeNode *pNow=root;
+	nowsum+=pNow->m_vaule;
+	path.push_back(pNow->m_vaule);
+	
+	if(nowsum==sum&&pNow->m_pleft==NULL&&pNow->m_pright==NULL)
+	{
+		cout<<"path is ";
+		for(int i=0;i<path.size();i++)
+			cout<<path[i]<<" ";
+		cout<<endl;
+	}
+
+	if(pNow->m_pleft!=NULL)
+		findeachpath(pNow->m_pleft,path,sum,nowsum);
+	if(pNow->m_pright!=NULL)
+		findeachpath(pNow->m_pright,path,sum,nowsum);
+
+	path.pop_back();
+}
+
+void findpath(BinaryTreeNode *root,int sum)
+{
+	if(root==NULL)
+		return;
+	vector<int> path;
+	int nowsum=0;
+	findeachpath(root,path,sum,nowsum);
+}
+
+
+/*template <typename T> class CQueue
+{
+public:
+	CQueue(void);
+	~CQueue(void);
+	
+	void appendTail(const T& node);
+	T deleteHead();
+private:
+	stack <T> stack1;
+	stack <T> stack2;
+};
+template<typename T> void CQueue::appendTail(const T& node)
+{
+	stack1.push(node);
+}
+template<typename T> T CQueue<T>::deleteHead()
+{
+	if(stack2.size()<=0)
+	{
+		while(stack1.size()>0)
+		{
+			T& temp=stack1.top();
+			stack1.pop();
+			stack2.push(temp);
+		}
+	}
+	if(stack2.size()!=0)
+	{
+		T result=stack2.top();
+		stack2.pop();
+		return result;
+	}
+		
+}*/
+
+/*bool IsPopOrder(int *input,int *output,int length)
+{
+	bool bPossible = false;
+	if(input!=NULL&&output!=NULL&&length>0)
+	{
+		const int* pNextPush = input;
+		const int* pNextPop = output;
+
+		stack<int> temp_data;
+		while(pNextPop-output<length)
+		{
+			if(temp_data.size()==0||temp_data.top()=*pNextPop)
+			{
+
+			}
+
+		}
+	}
+}*/
+
+
+int findreverse(int* a,int length)
+{
+	int first=0;int last=length-1;
+	int index=(last-first)/2;
+	int min=a[last];
+	while(first+1!=last)
+	{
+		if(a[index]>a[last])
+		{
+			first=index;
+			index=(last+first)/2;
+		}
+		if(a[index]<a[last])
+		{
+			last=index;
+			index=(last+first)/2;
+			min=a[last];
+		}
+	}
+	return min;
+}
+
+string findcolname(int n)
+{
+	string result="";
+	int temp=n;
+	string colnames="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	while(temp/26!=0)
+	{
+		result+=colnames[(temp-1)%26];
+		temp/=26;
+	}
+	result+=colnames[(temp-1)%26];
+	char ch;
+	for(int i=0;i<result.size()/2;i++)
+	{
+		ch=result[i];
+		result[i]=result[result.size()-1-i];
+		result[result.size()-1-i]=ch;
+	}
+	return result;
+}
+int countone(int n)
+{
+	int result=0;
+	while(n)
+	{
+		result++;
+		n=(n-1)&n;
+	}
+	return result;
+}
+
+void printNumber(char *number)   //大字符串的处理；***************
+{
+	int length=strlen(number);
+	int index=0;
+	while(number[index]=='0')
+		index++;
+	while(index<length)
+		cout<<number[index++];
+	cout<<" ";
+}
+void print1ToMaxOfN(char *number,int length,int index)
+{
+	if(index==length-1)
+	{
+		printNumber(number);
+		return;
+	}
+	for(int i=0;i<10;i++)
+	{
+		number[index+1]=i+'0';
+		print1ToMaxOfN(number,length,index+1);
+	}
+}
+void print1ToMax(int n)
+{
+	if(n<=0)
+		return;
+	char *number = new char[n+1];
+	number[n]='\0';
+
+	for(int i=0;i<10;i++)
+	{
+		number[0]=i+'0';
+		print1ToMaxOfN(number,n,0);
+	}
+	
+	delete [] number;
+	number=NULL;
+}
+void swap(char *a ,char *b)
+{
+	int m ;
+	m = *a;
+	*a = *b;
+	*b = m;
+} 
+
+void printallcombine(char list[],int k,int m)  //实现全排列
+{
+	if(k>m)
+	{
+		for(int i=0;i<=m;i++)
+		{
+			cout<<list[i]<<" ";
+		}
+		cout<<endl;
+	}
+	else
+	{
+		for(int i=k;i<=m;i++)
+		{
+			swap(&list[k],&list[i]);
+			printallcombine(list,k+1,m);
+			swap(&list[k],&list[i]);
+		}
+	}
+}
+
+void quicksort(int v[],int left,int right)
+{
+	if(left<right)
+	{
+		int key=v[left];
+		int low=left;
+		int height=right;
+		while(low<height)
+		{
+			while(low<height&&key<v[height])
+			{
+				height--;
+			}
+			v[low]=v[height];
+			while(low<height&&key>=v[low])
+			{
+				low++;
+			}
+			v[height]=v[low];
+		}
+		v[low]=key;
+		quicksort(v,left,low-1);
+		quicksort(v,low+1,right);
+	}
+}
+bool isok(int n)
+{
+	return (n&1)==0;
+}
+void jiousort(int p[],int left,int right)
+{
+	int first=left;
+	int last=right;
+	int temp;
+	while(first<last)
+	{
+		while(first<last&&!isok(p[first]))
+			first++;
+		while(first<last&&isok(p[last]))
+			last--;
+		temp=p[first];
+		p[first]=p[last];
+		p[last]=temp;
+	}
+}
+
+void CirclePrint(vector<vector<int> > &v,int columns,int rows,int start)  //循环打印
+{
+	int endX=columns-1-start;
+	int endY=rows-1-start;
+
+	for(int i=start;i<=endX;i++)
+		cout<<v[start][i]<<" ";
+
+	if(endY>start)
+	{
+		for(int i=start+1;i<=endY;i++)
+			cout<<v[i][endX]<<" ";
+	}
+
+	if(endY>start&&endX>start)
+	{
+		for(int i=endX-1;i>=start;i--)
+			cout<<v[endY][i]<<" ";
+	}
+
+	if(endY-1>start&&endX>start)
+	{
+		for(int i=endY-1;i>start;i--)
+			cout<<v[i][start]<<" ";
+	}
+}
+
+void SqurtPrint(vector<vector<int> > &v,int columns,int rows)
+{
+	if(v.size()==0||columns==0||rows==0)
+		return;
+	int start=0;
+	while(columns>start*2&&rows>start*2)
+	{
+		CirclePrint(v,columns,rows,start);
+		start++;
+	}
+}
+
+int nummorehalf(int *p,int length)
+{
+	if(p==NULL||length<=0)
+		return 0;
+	int result=p[0];
+	int times=1;
+	for(int i=1;i<length;i++)
+	{
+		if(times==0)
+		{
+			result=p[i];
+			times=1;
+		}
+		else
+		{
+			if(result==p[i])
+				times++;
+			else
+				times--;
+		}
+	}
+	return result;
+}
+
+void frontknumber(int *p,int length,int k)
+{
+	if(p==NULL||length<=0||k<=0)
+		return;
+	int index=0;
+	int left=0;
+	int right=length-1;
+	while(index!=k-1)
+	{
+		int key=p[left];
+		int low=left;
+		int high=right;
+		while(low<high)
+		{
+			while(low<high&&key<p[high])
+			{
+				high--;
+			}
+			p[low]=p[high];
+			while(low<high&&key>=p[low])
+			{
+				low++;
+			}
+			p[high]=p[low];
+		}
+		p[low]=key;
+		index=low;
+		if(index>k-1)
+			right=index-1;
+		if(index<k-1)
+			left=index+1;
+	}
+	for(int i=0;i<k;i++)
+		cout<<p[i]<<" ";
+	cout<<endl;
+}
+
+int findmaxsub(int *p,int length)
+{
+	int *sum=new int[length];
+	int *maxsum=new int[length];
+	*sum=p[0];
+	*maxsum=*sum;
+	for(int i=1;i<length;i++)
+	{
+		if(*(sum+i-1)<0)
+			*(sum+i)=p[i];
+		else
+			*(sum+i)=*(sum+i-1)+p[i];
+		if(*(sum+i)>*(maxsum+i-1))
+			*(maxsum+i)=*(sum+i);
+		else
+			*(maxsum+i)=*(maxsum+i-1);
+	}
+	int result=0;
+	int index=0;
+	for(int i=1;i<length;i++)
+	{
+		if(*(maxsum+i)>result)
+		{
+			result=*(maxsum+i);
+			index=i;
+		}
+	}
+	int max=result;
+	do
+	{
+		max-=p[index];
+		cout<<p[index--]<<" ";
+
+	}while(max!=0);
+	cout<<endl;
+	return result;
+}
+int main()
+{
+	int a[5][5]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
+	vector<vector<int> > all_data;
+	for(int i=0;i<3;i++)
+	{
+		vector<int> temp_data;
+		for(int j=0;j<5;j++)
+		{
+			temp_data.push_back(a[i][j]);
+		}
+		all_data.push_back(temp_data);
+	}
+	for(int i=0;i<all_data.size();i++)
+	{
+		for(int j=0;j<all_data[i].size();j++)
+		{
+			cout<<all_data[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	SqurtPrint(all_data,5,3);
+	if(findnum(a,4,4,5))
+	{
+		cout<<"find！"<<endl;
+	}
+	else
+	{
+		cout<<"notfind!"<<endl;
+	}
+
+
+	string str="We are happy!";
+	cout<<fillblack(str)<<endl;
+
+	/*********** 链表构建 ************/
+	ListNode *pHead=NULL;
+	AddTail(&pHead,2);
+	AddTail(&pHead,3);
+	AddTail(&pHead,4);
+	AddTail(&pHead,5);
+	printFromHead(&pHead);
+	DeleteNode(&pHead,3);
+	printFromHead(&pHead);
+	printFromTail(pHead);
+	cout<<endl;
+	insertAfterNum(&pHead,2,3);
+	printFromHead(&pHead);
+	insertBeforeNum(&pHead,2,1);
+	printFromHead(&pHead);
+
+
+	ListNode *pHead2=NULL;
+	AddTail(&pHead2,2);
+	AddTail(&pHead2,4);
+	pHead2=Merge(pHead,pHead2);
+	printFromHead(&pHead2);
+
+
+	ListNode *pk=findendknode(pHead,3);
+	cout<<pk->m_value<<"ListNode"<<endl;
+	ListNode * pnow=reverselist(pHead);
+	printFromHead(&pnow);
+
+	/************** 树的构建 *****************/
+	int preorder[]={1,2,4,7,3,5,6,8};
+	int inorder[]={4,7,2,1,5,3,8,6};
+	BinaryTreeNode* binary=Construct(preorder,inorder,8);
+	preprint(binary);
+	cout<<endl;
+	inprint(binary);
+	cout<<endl;
+	backprint(binary);
+	cout<<endl;
+	findpath(binary,20);
+	MirrorTree(binary);
+	preprint(binary);
+	cout<<endl;
+
+	int backseq[]={5,7,6,9,11,10,8};
+	if(IsBinaryTree(backseq,7))
+		cout<<"是二叉搜索树"<<endl;
+	else
+		cout<<"不是二叉搜索树"<<endl;
+
+
+	BinaryTreeNode binaryleft=BinaryTreeNode();
+	binaryleft.m_vaule=5;
+	binaryleft.m_pleft=NULL;
+	binaryleft.m_pright=NULL;
+
+	BinaryTreeNode binaryright=BinaryTreeNode();
+	binaryright.m_vaule=6;
+	binaryright.m_pleft=NULL;
+	binaryright.m_pright=NULL;
+
+	BinaryTreeNode binaryroot=BinaryTreeNode();
+	binaryroot.m_vaule=3;
+	binaryroot.m_pleft=&binaryleft;
+	binaryroot.m_pright=&binaryright;
+
+	preprint(&binaryroot);
+	cout<<endl;
+
+	PrintFromTop(binary);
+
+	if(findSubTree(binary,&binaryroot))
+	{
+		cout<<"找到子树"<<endl;
+	}
+	else
+	{
+		cout<<"不是子树"<<endl;
+	}
+	/************* 栈的构建 ******************/
+
+
+	/************* 查找排序 ******************/
+	int a8[]={6,7,8,9,10,11,12,13,1,2,3,4,5};
+	cout<<findreverse(a8,13)<<endl;
+
+	int test=0;
+	string result=test==1? "true":"false"; //三目运算符的使用
+	cout<<result<<endl;
+
+	cout<<findcolname(704)<<endl;
+
+	cout<<"统计二进制数中1的个数 "<<countone(9)<<endl;
+
+	char *p="000001234";
+	printNumber(p);
+
+	print1ToMax(2);
+	int per[]={1,2,3};
+
+	char p_com[]="123";
+	printallcombine(p_com,0,2);
+
+	int fastdata[] = {32,34,23,12,42,54,59,25,67}; //快速排序
+	frontknumber(fastdata,9,6);
+	for(int i=0;i<9;i++)
+		cout<<fastdata[i]<<" ";
+	cout<<endl;
+	quicksort(fastdata,0,8);
+	for(int i=0;i<9;i++)
+		cout<<fastdata[i]<<" ";
+	cout<<endl;
+
+	int jidata[]={2,3,1,3,2,2,2,3,2};  //奇偶排序
+	jiousort(jidata,0,8);
+	for(int i=0;i<9;i++)
+		cout<<jidata[i]<<" ";
+	cout<<endl;
+
+	cout<<nummorehalf(jidata,9)<<endl;
+
+	int maxsum[]={1,-2,3,10,-4,7,2,-5};
+
+	int maxofsum=findmaxsub(maxsum,8);
+}
+
+</code></pre>
+
+
+</body>
+
+</html>
+
