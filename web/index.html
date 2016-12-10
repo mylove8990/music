@@ -1,0 +1,220 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+html {
+    background-color: #E9EEF0
+}
+.wrapper {
+    margin: 140px auto;
+    width: 884px;
+}
+.loginBox {
+    background-color: #FEFEFE;
+    border: 1px solid #BfD6E1;
+    border-radius: 5px;
+    color: #444;
+    font: 14px 'Microsoft YaHei','微软雅黑';
+    margin: 0 auto;
+    width: 388px
+}
+.loginBox .loginBoxCenter {
+    border-bottom: 1px solid #DDE0E8;
+    padding: 24px;
+}
+.loginBox .loginBoxCenter p {
+    margin-bottom: 10px
+}
+.loginBox .loginBoxButtons {
+    background-color: #F0F4F6;
+    border-top: 1px solid #FFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    line-height: 28px;
+    overflow: hidden;
+    padding: 20px 24px;
+    vertical-align: center;
+}
+.loginBox .loginInput {
+    border: 1px solid #D2D9dC;
+    border-radius: 2px;
+    color: #444;
+    font: 12px 'Microsoft YaHei','微软雅黑';
+    padding: 8px 14px;
+    margin-bottom: 8px;
+    width: 310px;
+}
+.loginBox .loginInput:FOCUS {
+    border: 1px solid #B7D4EA;
+    box-shadow: 0 0 8px #B7D4EA;
+}
+.loginBox .loginBtn {
+    background-image: -moz-linear-gradient(to bottom, #B5DEF2, #85CFEE);
+    border: 1px solid #98CCE7;
+    border-radius: 20px;
+    box-shadow:inset rgba(255,255,255,0.6) 0 1px 1px, rgba(0,0,0,0.1) 0 1px 1px;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    font: bold 13px Arial;
+    padding: 5px 14px;
+}
+.loginBox .loginBtn:HOVER {
+    background-image: -moz-linear-gradient(to top, #B5DEF2, #85CFEE);
+}
+.loginBox a.forgetLink {
+    color: #ABABAB;
+    cursor: pointer;
+    float: right;
+    font: 11px/20px Arial;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.loginBox a.forgetLink:HOVER {
+    text-decoration: underline;
+}
+.loginBox input#remember {
+    vertical-align: middle;
+}
+.loginBox label[for="remember"] {
+    font: 11px Arial;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="loginBox">
+        <form id="login" name="login" method="post">
+		<div class="loginBoxCenter">
+            <p><label for="username">用户名：</label></p>
+            <p><input type="user" id="user" name="user" class="loginInput" autofocus="autofocus" required="required" autocomplete="off" placeholder="请输入姓名" value="" /></p>
+            <p><label for="password">手机号：</label></p>
+            <p><input type="text" id="phone" name="phone" class="loginInput" required="required" placeholder="请输入手机号" value="" /></p>
+        </div>
+		</form>
+        <div class="loginBoxButtons" align="right">
+			<input type="button" name="submit" value="登录" onclick="getFormInfo();"/>
+        </div>
+    </div>
+    
+</div>
+<script language="javascript">
+function Encrypt(str, pwd) {    
+    if(str=="")return "";    
+    str = escape(str);    
+    if(!pwd || pwd==""){ var pwd="1234"; }    
+    pwd = escape(pwd);    
+      if(pwd == null || pwd.length <= 0) {    
+        alert("Please enter a password with which to encrypt the message.");    
+          return null;    
+      }    
+      var prand = "";    
+      for(var I=0; I<pwd.length; I++) {    
+        prand += pwd.charCodeAt(I).toString();    
+      }    
+      var sPos = Math.floor(prand.length / 5);    
+      var mult = parseInt(prand.charAt(sPos) + prand.charAt(sPos*2) + prand.charAt(sPos*3) + prand.charAt(sPos*4) + prand.charAt(sPos*5));    
+      var incr = Math.ceil(pwd.length / 2);    
+      var modu = Math.pow(2, 31) - 1;    
+      if(mult < 2) {    
+        alert("Algorithm cannot find a suitable hash. Please choose a different password. /nPossible considerations are to choose a more complex or longer password.");    
+        return null;    
+      }    
+      var salt = Math.round(Math.random() * 1000000000) % 100000000;    
+      prand += salt;    
+      while(prand.length > 10) {    
+        prand = (parseInt(prand.substring(0, 10)) + parseInt(prand.substring(10, prand.length))).toString();    
+      }    
+      prand = (mult * prand + incr) % modu;    
+    var enc_chr = "";    
+    var enc_str = "";    
+    for(var I=0; I<str.length; I++) {    
+        enc_chr = parseInt(str.charCodeAt(I) ^ Math.floor((prand / modu) * 255));    
+        if(enc_chr < 16) {    
+            enc_str += "0" + enc_chr.toString(16);    
+        }else    
+            enc_str += enc_chr.toString(16);    
+        prand = (mult * prand + incr) % modu;    
+    }    
+      salt = salt.toString(16);    
+      while(salt.length < 8)salt = "0" + salt;    
+    enc_str += salt;    
+    return enc_str;    
+}    
+	//获取指定form中的所有的<input>对象    
+function getElements(formId) {    
+    var form = document.getElementById(formId);    
+    var elements = new Array();    
+    var tagElements = form.getElementsByTagName('input');    
+    for (var j = 0; j < tagElements.length; j++){  
+         elements.push(tagElements[j]);  
+  
+    }  
+    return elements;    
+}   
+  
+//获取单个input中的【name,value】数组  
+function inputSelector(element) {    
+  if (element.checked)    
+     return [element.name, element.value];    
+}    
+      
+function input(element) {    
+    switch (element.type.toLowerCase()) {    
+      case 'submit':    
+      case 'hidden':    
+      case 'password':    
+      case 'text':    
+        return [element.name, element.value];    
+      case 'checkbox':    
+      case 'radio':    
+        return inputSelector(element);    
+    }    
+    return false;    
+}    
+  
+//组合URL  
+function serializeElement(element) {    
+    var method = element.tagName.toLowerCase();    
+    var parameter = input(element);    
+    
+    if (parameter) {    
+      var key = encodeURIComponent(parameter[0]);    
+      if (key.length == 0) return;    
+    
+      if (parameter[1].constructor != Array)    
+        parameter[1] = [parameter[1]];    
+          
+      var values = parameter[1];    
+      var results = [];    
+      for (var i=0; i<values.length; i++) {    
+        results.push(key + '=' + encodeURIComponent(values[i]));    
+      }    
+      return results.join('&');    
+    }    
+ }    
+  
+//调用方法     
+function serializeForm(formId) {    
+    var elements = getElements(formId);    
+    var queryComponents = new Array();    
+    
+    for (var i = 0; i < elements.length; i++) {    
+      var queryComponent = serializeElement(elements[i]);    
+      if (queryComponent)    
+        queryComponents.push(queryComponent);    
+    }    
+    
+    return queryComponents.join('&');  
+}    
+
+function getFormInfo(){  
+    
+	var params = serializeForm('login');
+	//params = Encrypt(params,"1");
+	//alert(params);
+    window.location.href = "payout1.html?" + encodeURI(params);  
+} 
+</script>
+</body>
+</html>
